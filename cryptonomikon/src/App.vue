@@ -84,6 +84,7 @@
         :currentTicket="currentTicket"
         @width="calculateMaxGraphElements"
         @closeGraph="closeGraph"
+        ref="graph"
       />
     </div>
   </div>
@@ -204,6 +205,7 @@ export default {
     },
 
     calculateMaxGraphElements(width) {
+      console.log(width)
       this.maxGraphElements = width / this.oneGraphElement
     },
 
@@ -244,7 +246,8 @@ export default {
 
     currentTicket() {
       this.graph = []
-      this.$nextTick().then(this.calculateMaxGraphElements)
+      // console.log(this.$refs.graph.widthContainer())
+      this.$refs.graph.widthContainer()
     },
 
     tickets() {
